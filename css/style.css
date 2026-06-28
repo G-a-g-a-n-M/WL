@@ -38,9 +38,9 @@ body {
 
 .bg-slideshow img {
   width: auto;
-  max-width: 35vw; 
+  max-width: 45vw; 
   height: auto;
-  max-height: 20vh;
+  max-height: 25vh;
   object-fit: contain; 
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
@@ -56,19 +56,6 @@ body {
 /* Base image rotations */
 .bg-slideshow img:nth-child(1) { transform: rotate(-4deg); }
 .bg-slideshow img:nth-child(2) { transform: rotate(4deg); }
-
-@media (min-width: 768px) {
-  .bg-slideshow {
-    flex-direction: row; /* Switch to side-by-side */
-    justify-content: space-between;
-    padding: 0 4vw;
-  }
-  
-  .bg-slideshow img {
-    max-width: 20vw;
-    max-height: 40vh;
-  }
-}
 
 /* Floating Hearts */
 .heart-container {
@@ -115,25 +102,17 @@ body {
 /* Base Nav Button Style */
 .btn {
   display: inline-block;
-  padding: 8px 16px;
-  margin: 6px;
+  padding: 4px 8px; /* Extremely small */
+  margin: 3px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 30px;
+  border-radius: 20px;
   text-decoration: none;
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
-  font-size: 0.85rem;
-}
-
-@media (min-width: 768px) {
-  .btn {
-    padding: 12px 24px;
-    margin: 10px;
-    font-size: 1rem;
-  }
+  font-size: 0.65rem; /* Drastic reduction */
 }
 
 .btn:hover {
