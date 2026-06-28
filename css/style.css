@@ -21,26 +21,22 @@ body {
   position: relative;
 }
 
-/* Background Slideshow - Flexbox layout prevents overlap */
+/* Background Slideshow - Mathematical safe positions for mobile */
 .bg-slideshow {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
   z-index: -2;
   overflow: hidden;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5vh 0; /* Padding offsets from screen top/bottom */
 }
 
 .bg-slideshow img {
+  position: absolute;
+  left: 50%;
   width: auto;
   max-width: 45vw; 
   height: auto;
-  max-height: 25vh;
+  max-height: 22vh;
   object-fit: contain; 
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
@@ -53,9 +49,26 @@ body {
   opacity: 0.85;
 }
 
-/* Base image rotations */
-.bg-slideshow img:nth-child(1) { transform: rotate(-4deg); }
-.bg-slideshow img:nth-child(2) { transform: rotate(4deg); }
+/* Base image rotations and safe margins for top and bottom */
+.bg-slideshow img:nth-child(1) { 
+  top: 6vh; 
+  transform: translateX(-50%) rotate(-4deg); 
+}
+.bg-slideshow img:nth-child(2) { 
+  bottom: 12vh; /* Extra spacing to avoid mobile browser navigation bar */
+  transform: translateX(-50%) rotate(4deg); 
+}
+
+@media (min-width: 768px) {
+  .bg-slideshow img {
+    max-width: 20vw;
+    max-height: 40vh;
+  }
+  
+  /* Desktop side-by-side */
+  .bg-slideshow img:nth-child(1) { top: 50%; left: 10vw; transform: translateY(-50%) rotate(-4deg); }
+  .bg-slideshow img:nth-child(2) { top: 50%; right: 10vw; left: auto; bottom: auto; transform: translateY(-50%) rotate(4deg); }
+}
 
 /* Floating Hearts */
 .heart-container {
@@ -102,17 +115,25 @@ body {
 /* Base Nav Button Style */
 .btn {
   display: inline-block;
-  padding: 4px 8px; /* Extremely small */
-  margin: 3px;
+  padding: 8px 16px;
+  margin: 6px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 20px;
+  border-radius: 30px;
   text-decoration: none;
   color: #fff;
-  font-weight: 500;
+  font-weight: 600;
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
-  font-size: 0.65rem; /* Drastic reduction */
+  font-size: 0.85rem;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 1rem;
+  }
 }
 
 .btn:hover {
