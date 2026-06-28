@@ -34,9 +34,9 @@ body {
   position: absolute;
   left: 50%;
   width: auto;
-  max-width: 45vw; 
+  max-width: 55vw; 
   height: auto;
-  max-height: 22vh;
+  max-height: 28vh;
   object-fit: contain; 
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
@@ -51,11 +51,11 @@ body {
 
 /* Base image rotations and safe margins for top and bottom */
 .bg-slideshow img:nth-child(1) { 
-  top: 6vh; 
+  top: 4vh; 
   transform: translateX(-50%) rotate(-4deg); 
 }
 .bg-slideshow img:nth-child(2) { 
-  bottom: 12vh; /* Extra spacing to avoid mobile browser navigation bar */
+  bottom: 25vh; /* Pushed significantly higher up */
   transform: translateX(-50%) rotate(4deg); 
 }
 
