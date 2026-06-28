@@ -32,8 +32,8 @@ function initSlideshow() {
     }
     
     updateImages();
-    // Swap images every 5 seconds
-    setInterval(updateImages, 5000);
+    // Swap images every 6 seconds
+    setInterval(updateImages, 6000);
 }
 
 function initHearts() {

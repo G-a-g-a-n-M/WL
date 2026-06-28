@@ -49,25 +49,35 @@ body {
   opacity: 0.85;
 }
 
-/* Base image rotations and safe margins for top and bottom */
+/* Smooth drifting animations */
 .bg-slideshow img:nth-child(1) { 
-  top: 4vh; 
-  transform: translateX(-50%) rotate(-4deg); 
+  animation: driftOne 24s infinite alternate linear;
 }
 .bg-slideshow img:nth-child(2) { 
-  bottom: 25vh; /* Pushed significantly higher up */
-  transform: translateX(-50%) rotate(4deg); 
+  animation: driftTwo 28s infinite alternate-reverse linear;
 }
 
 @media (min-width: 768px) {
   .bg-slideshow img {
-    max-width: 20vw;
-    max-height: 40vh;
+    max-width: 25vw;
+    max-height: 45vh;
   }
-  
-  /* Desktop side-by-side */
-  .bg-slideshow img:nth-child(1) { top: 50%; left: 10vw; transform: translateY(-50%) rotate(-4deg); }
-  .bg-slideshow img:nth-child(2) { top: 50%; right: 10vw; left: auto; bottom: auto; transform: translateY(-50%) rotate(4deg); }
+}
+
+@keyframes driftOne {
+  0%   { top: -5vh; left: -10vw; transform: rotate(-5deg); }
+  25%  { top: 75vh; left: 70vw; transform: rotate(10deg); }
+  50%  { top: 50vh; left: 10vw; transform: rotate(-12deg); }
+  75%  { top: 15vh; left: 65vw; transform: rotate(8deg); }
+  100% { top: 80vh; left: 5vw; transform: rotate(-2deg); }
+}
+
+@keyframes driftTwo {
+  0%   { top: 80vh; left: 75vw; transform: rotate(6deg); }
+  25%  { top: 10vh; left: 10vw; transform: rotate(-8deg); }
+  50%  { top: 65vh; left: 80vw; transform: rotate(12deg); }
+  75%  { top: 5vh; left: 40vw; transform: rotate(-4deg); }
+  100% { top: 60vh; left: -5vw; transform: rotate(-10deg); }
 }
 
 /* Floating Hearts */
