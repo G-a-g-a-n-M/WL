@@ -11,32 +11,32 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   border-radius: 20px;
-  padding: 10px 10px;
+  padding: 8px 8px;
   text-align: center;
   color: white;
   max-width: 90%;
-  width: 250px;
+  width: 120px;
   animation: fadeInContainer 1.5s ease-out forwards;
 }
 
 .glass-container h1 {
-  font-size: 1.5rem;
-  margin-bottom: -5px;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
   animation: pulse 2s infinite;
   display: inline-block;
 }
 
 .glass-container h2 {
   font-family: 'Great Vibes', cursive;
-  font-size: 1.3rem;
-  margin-bottom: 5px;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
   font-weight: normal;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .subtitle {
-  font-size: 0.7rem;
-  margin-bottom: 10px;
+  font-size: 0.55rem;
+  margin-bottom: 6px;
   font-weight: 300;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
 }
@@ -44,27 +44,29 @@ body {
 .buttons {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
   align-items: center;
 }
 
 @media (min-width: 768px) {
   .glass-container {
-    padding: 50px 30px;
+    padding: 14px 12px;
+    width: 220px;
   }
   .glass-container h1 {
-    font-size: 4rem;
+    font-size: 1.4rem;
   }
   .glass-container h2 {
-    font-size: 3.5rem;
+    font-size: 1.4rem;
   }
   .subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 35px;
+    font-size: 0.75rem;
+    margin-bottom: 10px;
   }
   .buttons {
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    gap: 8px;
   }
 }
 
