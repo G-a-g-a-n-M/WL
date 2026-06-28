@@ -48,16 +48,20 @@ body {
   opacity: 0.85;
 }
 
-/* Positioned strictly on the left and right sides of the screen */
-.bg-slideshow img:nth-child(1) { top: 50%; left: 3%; transform: translateY(-50%) rotate(-4deg); }
-.bg-slideshow img:nth-child(2) { top: 50%; right: 3%; transform: translateY(-50%) rotate(4deg); }
+/* Positioned above and below on mobile */
+.bg-slideshow img:nth-child(1) { top: 3%; left: 50%; transform: translateX(-50%) rotate(-4deg); }
+.bg-slideshow img:nth-child(2) { bottom: 3%; left: 50%; transform: translateX(-50%) rotate(4deg); top: auto; }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
   .bg-slideshow img {
     width: 200px;
     max-width: none;
     max-height: 350px;
   }
+  
+  /* Positioned strictly on the left and right sides on desktop */
+  .bg-slideshow img:nth-child(1) { top: 50%; left: 3%; transform: translateY(-50%) rotate(-4deg); }
+  .bg-slideshow img:nth-child(2) { top: 50%; right: 3%; bottom: auto; transform: translateY(-50%) rotate(4deg); left: auto; }
 }
 
 /* Floating Hearts */
