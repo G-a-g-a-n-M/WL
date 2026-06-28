@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Open My Heart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/envelope.css">
+</head>
+<body>
+    <a href="index.html" class="btn back-btn">← Back</a>
+    
+    <div class="container">
+        <div class="letter-count">Letter <span id="count">0</span></div>
+        
+        <div class="envelope-wrapper" id="envelope-wrapper">
+            <div class="envelope">
+                <div class="envelope-back"></div>
+                <div class="paper" id="paper">
+                    <p id="typewriter-text"></p><span class="cursor" id="cursor">|</span>
+                </div>
+                <div class="envelope-front"></div>
+                <div class="flap top-flap" id="top-flap"></div>
+            </div>
+        </div>
+
+        <button id="action-btn" class="btn primary-btn">Open Next Letter 💌</button>
+    </div>
+    
+    <!-- Load scripts -->
+    <script src="data/reasonsData.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/reasons.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+body {
+    overflow-y: auto; /* allow scroll on this page */
+}
+
+.wall-header {
+    text-align: center;
+    color: white;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    z-index: 1;
+    position: relative;
+    animation: fadeInContainer 1s ease-out forwards;
+    padding: 0 20px;
+}
+
+.wall-header h2 {
+    font-size: 2.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.wall-header p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+.wall-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 100px;
+    z-index: 1;
+    position: relative;
+}
+
+@media (min-width: 600px) {
+    .wall-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .wall-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.reason-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 150px;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: cardFadeIn 0.5s ease-out forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reason-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(255, 154, 158, 0.6);
+}
+
+.reason-card .card-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #d17a86;
+    font-size: 1.2rem;
+}
+
+.reason-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+@keyframes cardFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}

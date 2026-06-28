@@ -1,0 +1,147 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  z-index: 1;
+}
+
+.letter-count {
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px 16px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.envelope-wrapper {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  margin-bottom: 40px;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+/* Envelope base structure */
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.envelope-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: #d17a86;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.envelope-front {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 0;
+  border-left: 150px solid #e598a3;
+  border-right: 150px solid #e598a3;
+  border-bottom: 100px solid #f2a6b0;
+  border-top: 100px solid transparent;
+  z-index: 3;
+  border-radius: 0 0 5px 5px;
+}
+
+/* Top flap that opens */
+.top-flap {
+  position: absolute;
+  top: 0; left: 0;
+  width: 0; height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 110px solid #f9b4c0;
+  z-index: 4;
+  transform-origin: top;
+  transition: transform 0.6s ease-in-out, z-index 0s 0.3s;
+}
+
+/* The paper inside */
+.paper {
+  position: absolute;
+  bottom: 10px;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background-color: var(--cream);
+  border-radius: 5px;
+  z-index: 2; /* Below front flaps, above back */
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.8s ease-in-out;
+  overflow: hidden;
+  font-family: 'Indie Flower', cursive;
+}
+
+.paper p {
+  font-family: 'Indie Flower', cursive;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  line-height: 1.4;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.cursor {
+  font-weight: bold;
+  animation: blink 1s step-end infinite;
+}
+
+/* Animations State Classes */
+.envelope-wrapper.lifted {
+  transform: translateY(-20px);
+}
+
+.envelope-wrapper.open .top-flap {
+  transform: rotateX(180deg);
+  z-index: 1; /* Drop behind paper once open */
+}
+
+/* Slide paper up and enlarge */
+.envelope-wrapper.unfolded .paper {
+  bottom: 100px;
+  height: 250px;
+  width: 320px;
+  left: -10px;
+  z-index: 10;
+  padding: 30px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.primary-btn {
+  font-size: 1.2rem;
+  background: var(--primary-pink);
+  box-shadow: 0 5px 15px rgba(255, 154, 158, 0.4);
+}
+
+.primary-btn:hover {
+  background: var(--secondary-rose);
+  color: #333;
+}
+
+@media (max-width: 380px) {
+  .envelope-wrapper {
+    transform: scale(0.8);
+    transform-origin: center bottom;
+  }
+  .envelope-wrapper.lifted {
+    transform: scale(0.8) translateY(-20px);
+  }
+}

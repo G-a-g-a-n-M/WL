@@ -1,0 +1,133 @@
+:root {
+  --primary-pink: #ff9a9e;
+  --secondary-rose: #fecfef;
+  --white: #ffffff;
+  --cream: #fffdd0;
+  --text-dark: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Helvetica', 'Arial', sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+  position: relative;
+}
+
+/* Background Slideshow - Beside the Message */
+.bg-slideshow {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.bg-slideshow img {
+  position: absolute;
+  width: 120px; 
+  max-width: 40vw; 
+  height: auto;
+  max-height: 250px;
+  object-fit: contain; 
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  pointer-events: none;
+}
+
+.bg-slideshow img.active {
+  opacity: 0.85;
+}
+
+/* Positioned strictly on the left and right sides of the screen */
+.bg-slideshow img:nth-child(1) { top: 50%; left: 3%; transform: translateY(-50%) rotate(-4deg); }
+.bg-slideshow img:nth-child(2) { top: 50%; right: 3%; transform: translateY(-50%) rotate(4deg); }
+
+@media (min-width: 600px) {
+  .bg-slideshow img {
+    width: 200px;
+    max-width: none;
+    max-height: 350px;
+  }
+}
+
+/* Floating Hearts */
+.heart-container {
+  position: absolute;
+  width: 100%; height: 100%;
+  top: 0; left: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.floating-heart {
+  --size: 20px;
+  position: absolute;
+  bottom: -50px;
+  background-color: var(--primary-pink);
+  width: var(--size); height: var(--size);
+  transform: rotate(-45deg);
+  animation: floatUp linear forwards;
+}
+
+.floating-heart::before, .floating-heart::after {
+  content: "";
+  position: absolute;
+  background-color: var(--primary-pink);
+  border-radius: 50%;
+  width: var(--size); height: var(--size);
+}
+
+.floating-heart::before {
+  top: calc(var(--size) / -2);
+  left: 0;
+}
+
+.floating-heart::after {
+  top: 0;
+  left: calc(var(--size) / 2);
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(-45deg) scale(1); opacity: inherit; }
+  100% { transform: translateY(-120vh) rotate(5deg) scale(0.5); opacity: 0; }
+}
+
+/* Base Nav Button Style */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 30px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(255, 154, 158, 0.3);
+}
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.2);
+}
