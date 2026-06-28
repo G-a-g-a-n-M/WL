@@ -21,21 +21,26 @@ body {
   position: relative;
 }
 
-/* Background Slideshow - Beside the Message */
+/* Background Slideshow - Flexbox layout prevents overlap */
 .bg-slideshow {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
   z-index: -2;
   overflow: hidden;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5vh 0; /* Padding offsets from screen top/bottom */
 }
 
 .bg-slideshow img {
-  position: absolute;
-  width: 120px; 
-  max-width: 40vw; 
+  width: auto;
+  max-width: 35vw; 
   height: auto;
-  max-height: 250px;
+  max-height: 20vh;
   object-fit: contain; 
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
@@ -48,20 +53,21 @@ body {
   opacity: 0.85;
 }
 
-/* Positioned above and below on mobile */
-.bg-slideshow img:nth-child(1) { top: 3%; left: 50%; transform: translateX(-50%) rotate(-4deg); }
-.bg-slideshow img:nth-child(2) { bottom: 3%; left: 50%; transform: translateX(-50%) rotate(4deg); top: auto; }
+/* Base image rotations */
+.bg-slideshow img:nth-child(1) { transform: rotate(-4deg); }
+.bg-slideshow img:nth-child(2) { transform: rotate(4deg); }
 
 @media (min-width: 768px) {
-  .bg-slideshow img {
-    width: 200px;
-    max-width: none;
-    max-height: 350px;
+  .bg-slideshow {
+    flex-direction: row; /* Switch to side-by-side */
+    justify-content: space-between;
+    padding: 0 4vw;
   }
   
-  /* Positioned strictly on the left and right sides on desktop */
-  .bg-slideshow img:nth-child(1) { top: 50%; left: 3%; transform: translateY(-50%) rotate(-4deg); }
-  .bg-slideshow img:nth-child(2) { top: 50%; right: 3%; bottom: auto; transform: translateY(-50%) rotate(4deg); left: auto; }
+  .bg-slideshow img {
+    max-width: 20vw;
+    max-height: 40vh;
+  }
 }
 
 /* Floating Hearts */
